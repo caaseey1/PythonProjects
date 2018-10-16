@@ -19,8 +19,7 @@ from pathlib import Path
 log_url = 'https://s3.amazonaws.com/tcmg476/http_access_log'
 local_log_file = Path("logfile.txt")
 
-# Retrieve File (below). I have already downloaded it :) add a conditional to check for logfile.txt so we don't have to get it every time.
-# urllib.request.urlretrieve(log_url, 'logfile.txt')
+# Retrieve File (below)
 if local_log_file.is_file():
 	#file exists
 	print("Log file exists!\n")
@@ -68,10 +67,8 @@ xx3 = 0
 for line in open(local_log_file): 
 	count += 1 #amount of requests
 	#lines = local_log_file.readline()
+	
 	#Month dividing
-
-	#t.write("bin: "+line.strip()+"\n")
-
 	if bool(re.match('.*Jan.*',line.strip())):
 		outfile1.write(line.strip()+"\n")
 		jancount += 1
